@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function install_bashfile {
+    local srcfile="$1" destfile="$HOME/.$(basename "$bashfile")"
+    [ -e "$destfile" ] && cp "$destfile" "$destfile.old"
+    cp "$srcfile" "$destfile" && echo "$srcfile -> $destfile"
+}
+
+function install_bashfiles {
+    local bashfile
+    for bashfile in $(ls $(dirname "$0")/bash*); do
+        install_bashfile $bashfile
+    done
+}
+
+install_bashfiles
