@@ -31,9 +31,9 @@ function colors() {
 	done
 }
 
-PS1="\[$COLOR_BLUE\]@\h:\w\n"
+PS1="\[$COLOR_BLUE\]\u@\h:\w\n"
 PS1="$PS1\[$COLOR_RED\]\${CURRENT_MODE:+[\$CURRENT_MODE] }"
-PS1="$PS1\[$COLOR_GREEN\]\t \[$COLOR_GRAY\]\u\$ \[$COLOR_NC\]"
+PS1="$PS1\[$COLOR_GREEN\]\d \t \[$COLOR_GRAY\]\$ \[$COLOR_NC\]"
 
 # Useful shell aliases
 
