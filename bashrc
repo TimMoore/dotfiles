@@ -40,6 +40,8 @@ PS1="$PS1\[$COLOR_GREEN\]\d \t \[$COLOR_GRAY\]\$ \[$COLOR_NC\]"
 alias ..='cd ..'
 alias ....='..;..'
 
+alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs svn stat'
+
 # bash/readline options
 
 export HISTCONTROL=ignoredups # Ignores dupes in the history
