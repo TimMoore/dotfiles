@@ -40,8 +40,6 @@ PS1="$PS1\[$COLOR_GREEN\]\d \t \[$COLOR_GRAY\]\$ \[$COLOR_NC\]"
 alias ..='cd ..'
 alias ....='..;..'
 
-alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs svn stat'
-
 # bash/readline options
 
 export HISTCONTROL=ignoredups # Ignores dupes in the history
@@ -61,3 +59,22 @@ export FIGNORE=.svn
 # Environment
 
 export EDITOR='mate -w'
+
+# Development aliases and functions
+
+function idea() {
+    # grab the latest version of IDEA
+    IDEA=`ls -1d /Applications/IntelliJ\ * | tail -n1`
+
+    if [ -f "$1" ]; then      # first, try any filename provided
+      open -a "$IDEA" "$1"
+    elif [ -f pom.xml ]; then # second, try pom.xml
+      open -a "$IDEA" pom.xml
+    elif [ -f *.ipr ]; then   # third, try any IDEA project files
+      open -a "$IDEA" `ls -1d *.ipr | head -n1`
+    else                      # finally, just open IDEA
+      open "$IDEA"
+    fi
+}
+
+alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs svn stat'
