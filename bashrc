@@ -51,6 +51,8 @@ bind "set show-all-if-ambiguous on"
 
 if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
+elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
 fi
 
 # Ignore .svn directories when autocompleting
@@ -58,7 +60,7 @@ export FIGNORE=.svn
 
 # Environment
 
-export EDITOR='mate -w'
+export EDITOR=`(which mate && echo -n "-w") || which vi`
 
 # Development aliases and functions
 
@@ -78,3 +80,6 @@ function idea() {
 }
 
 alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs svn stat'
+
+# Include host-specific .bashrc file
+[ -f ~/.bashrc.`hostname` ] && . ~/.bashrc.`hostname`
