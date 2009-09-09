@@ -1,9 +1,8 @@
 #!/bin/bash
 
 function install_bashfile {
-    local srcfile="$1" destfile="$HOME/.$(basename "$bashfile")"
-    [ -e "$destfile" ] && cp "$destfile" "$destfile.old"
-    cp "$srcfile" "$destfile" && echo "$srcfile -> $destfile"
+    local srcfile="$1" destfile=".$(basename "$bashfile")"
+    ln -s "$srcfile" "$destfile" && echo "$destfile -> $srcfile"
 }
 
 function install_bashfiles {
