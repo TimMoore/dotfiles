@@ -82,4 +82,4 @@ function idea() {
 alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs svn stat'
 
 # Include host-specific .bashrc file
-[ -f ~/.bashrc.`hostname` ] && . ~/.bashrc.`hostname`
+[ -f ~/.bashrc.`hostname -s` ] && . ~/.bashrc.`hostname -s`

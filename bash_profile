@@ -8,7 +8,7 @@ if [ -d /opt/local ]; then
 fi
 
 # Include host-specific .bash_profile file
-[ -f ~/.bash_profile.`hostname` ] && . ~/.bash_profile.`hostname`
+[ -f ~/.bash_profile.`hostname -s` ] && . ~/.bash_profile.`hostname -s`
 
 # Include .bashrc
 [ -f ~/.bashrc ] && . ~/.bashrc
