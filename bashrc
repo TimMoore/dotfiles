@@ -67,7 +67,12 @@ export FIGNORE=.svn
 
 # Environment
 
-export EDITOR=`(which -s mate && echo -n "mate -w") || which vi`
+if [ -n "`which mate`" ]; then
+    EDITOR='mate -w'
+else
+    EDITOR=`which vi`
+fi
+export EDITOR
 
 # Development aliases and functions
 
