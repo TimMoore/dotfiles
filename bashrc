@@ -23,13 +23,22 @@ export COLOR_BROWN='\033[0;33m'
 export COLOR_YELLOW='\033[1;33m'
 export COLOR_GRAY='\033[0;30m'
 export COLOR_LIGHT_GRAY='\033[0;37m'
+
 alias colorslist="env | egrep 'COLOR_\w*'"  # lists all the colors
+
 function colors() {
 	local color
 	for color in `colorslist -o`
 		do echo -e "${!color}$color$COLOR_NC"
 	done
 }
+
+# Try to determine whether the 'ls' command on this system
+# supports the "--color" option
+
+if $(ls --color >/dev/null 2>&1); then
+    alias ls='ls --color=auto';
+fi
 
 PS1="\[$COLOR_BLUE\]\u@\h:\w\n"
 PS1="$PS1\[$COLOR_RED\]\${CURRENT_MODE:+[\$CURRENT_MODE] }"
