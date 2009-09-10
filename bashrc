@@ -49,7 +49,14 @@ bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set show-all-if-ambiguous on"
 
-if [ -f /opt/local/etc/bash_completion ]; then
+if [ -n "`which brew`" ]; then
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+        . `brew --prefix`/etc/bash_completion
+    fi
+    if [ -f `brew --prefix`/Library/Contributions/brew_bash_completion.sh ]; then
+        . `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+    fi
+elif [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
 elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
