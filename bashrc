@@ -53,12 +53,17 @@ alias ....='..;..'
 
 export HISTCONTROL=ignoredups # Ignores dupes in the history
 shopt -s histappend
+shopt -s extglob
 
 bind "set completion-ignore-case on"
 bind "set bell-style none"
 bind "set show-all-if-ambiguous on"
 
 if [ -n "`which brew`" ]; then
+    if [ -d "`brew --prefix`/bin" ]; then
+        shopt extglob
+        PATH="`brew --prefix`/bin:${PATH//`brew --prefix`\/bin?(:)}"
+    fi
     if [ -f `brew --prefix`/etc/bash_completion ]; then
         . `brew --prefix`/etc/bash_completion
     fi
