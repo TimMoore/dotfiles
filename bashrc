@@ -61,7 +61,6 @@ bind "set show-all-if-ambiguous on"
 
 if [ -n "`which brew`" ]; then
     if [ -d "`brew --prefix`/bin" ]; then
-        shopt extglob
         PATH="`brew --prefix`/bin:${PATH//`brew --prefix`\/bin?(:)}"
     fi
     if [ -f `brew --prefix`/etc/bash_completion ]; then
