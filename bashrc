@@ -111,7 +111,7 @@ alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs s
 
 # Include everything in .bashrc.d
 if [ -d ~/.bashrc.d ]; then
-	for bashrc in ~/.bashrc.d/*; do
+	for bashrc in $(ls ~/.bashrc.d); do
 		. $bashrc
 	done
 fi
