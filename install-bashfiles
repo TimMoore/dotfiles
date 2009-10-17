@@ -7,7 +7,7 @@ function install_bashfile {
 
 function install_bashfiles {
     local bashfile
-    for bashfile in $(ls $(dirname "$0")/bash*); do
+    for bashfile in $(ls -d $(dirname "$0")/bash*); do
         install_bashfile $bashfile
     done
 }

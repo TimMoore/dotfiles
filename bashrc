@@ -108,3 +108,11 @@ alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs s
 
 # Include host-specific .bashrc file
 [ -f ~/.bashrc.`hostname -s` ] && . ~/.bashrc.`hostname -s`
+
+# Include everything in .bashrc.d
+if [ -d ~/.bashrc.d ]; then
+	for bashrc in ~/.bashrc.d/*; do
+		. $bashrc
+	done
+fi
+
