@@ -52,8 +52,6 @@ alias ....='..;..'
 # bash/readline options
 
 export HISTCONTROL=ignoredups # Ignores dupes in the history
-shopt -s histappend
-shopt -s extglob
 
 bind "set completion-ignore-case on"
 bind "set bell-style none"
@@ -111,7 +109,8 @@ alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs s
 
 # Include everything in .bashrc.d
 if [ -d ~/.bashrc.d ]; then
-	for bashrc in $(ls ~/.bashrc.d); do
+	for bashrc in ~/.bashrc.d/*; do
+	    [ -f $bashrc ] || continue
 		. $bashrc
 	done
 fi
