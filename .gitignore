@@ -1,0 +1,6 @@
+*
+!.gitignore
+!.bash_profile
+!.bashrc
+!.bashrc.d/*
+
