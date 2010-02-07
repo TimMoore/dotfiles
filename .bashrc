@@ -85,6 +85,16 @@ else
 fi
 export EDITOR
 
+export MAVEN_OPTS="-Xmx256m -Dfile.encoding=ISO-8859-1 -Djava.awt.headless=true"
+
+
+function rgb2hex() {
+    perl -e '(shift @ARGV) =~ /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ && printf "#%X%X%X\n", $1, $2, $3' "$@"
+}
+
+export HISTCONTROL=erasedups
+export HISTSIZE=10000
+
 # Development aliases and functions
 
 function idea() {
