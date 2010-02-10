@@ -113,7 +113,7 @@ alias j5='setJava 1.5.0'
 
 # My own aliases -- TMM
 
-alias fail='find . -name \*.txt |xargs grep -l '\''FAILURE'\'' |xargs mate'
+alias fail='find . -path "*/surefire-reports/*.txt" |xargs grep -l '\''FAILURE'\'' |xargs mate'
 
 function idea() {
     IDEA=`ls -1d /Applications/IntelliJ\ * | tail -n1`
