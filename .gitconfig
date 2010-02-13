@@ -1,0 +1,9 @@
+[user]
+	name = Tim Moore
+	email = tmoore@incrementalism.net
+[color]
+	ui = auto
+[alias]
+	st = status
+	stat = status
+	svn-checkout = svn clone -s
