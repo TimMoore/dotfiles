@@ -92,6 +92,10 @@ function rgb2hex() {
     perl -e '(shift @ARGV) =~ /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ && printf "#%02X%02X%02X\n", $1, $2, $3' "$@"
 }
 
+function hex2rgb() {
+    perl -e '(shift @ARGV) =~ /#([[:xdigit:]]{2}){3}/ && printf "rgb(%d, %d, %d)\n", $1, $2, $3' "$@";
+}
+
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 
