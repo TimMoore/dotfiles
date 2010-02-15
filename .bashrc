@@ -89,7 +89,7 @@ export MAVEN_OPTS="-Xmx256m -Dfile.encoding=ISO-8859-1 -Djava.awt.headless=true"
 
 
 function rgb2hex() {
-    perl -e '(shift @ARGV) =~ /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ && printf "#%X%X%X\n", $1, $2, $3' "$@"
+    perl -e '(shift @ARGV) =~ /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ && printf "#%02X%02X%02X\n", $1, $2, $3' "$@"
 }
 
 export HISTCONTROL=erasedups
