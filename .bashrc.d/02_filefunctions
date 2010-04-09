@@ -10,3 +10,9 @@ if [ -d ~/.Trash ]; then
         mv "$1" ~/.Trash
     }
 fi
+
+# Convenient aliases for jumping up the directory tree
+#
+alias ..='cd ..;'
+alias ...='.. ..'
+alias ....='.. .. ..'

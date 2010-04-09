@@ -1,8 +1,3 @@
-# Useful shell aliases
-
-alias ..='cd ..'
-alias ....='..;..'
-
 # bash/readline options
 
 export HISTCONTROL=ignoredups # Ignores dupes in the history
