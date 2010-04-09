@@ -1,49 +1,3 @@
-# With thanks to Todd Werth
-# http://blog.infinitered.com/entries/show/4
-
-# Colors!
-
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
-export CLICOLOR=1
-
-export COLOR_NC='\033[0m' # No Color
-export COLOR_WHITE='\033[1;37m'
-export COLOR_BLACK='\033[0;30m'
-export COLOR_BLUE='\033[0;34m'
-export COLOR_LIGHT_BLUE='\033[1;34m'
-export COLOR_GREEN='\033[0;32m'
-export COLOR_LIGHT_GREEN='\033[1;32m'
-export COLOR_CYAN='\033[0;36m'
-export COLOR_LIGHT_CYAN='\033[1;36m'
-export COLOR_RED='\033[0;31m'
-export COLOR_LIGHT_RED='\033[1;31m'
-export COLOR_PURPLE='\033[0;35m'
-export COLOR_LIGHT_PURPLE='\033[1;35m'
-export COLOR_BROWN='\033[0;33m'
-export COLOR_YELLOW='\033[1;33m'
-export COLOR_GRAY='\033[0;30m'
-export COLOR_LIGHT_GRAY='\033[0;37m'
-
-alias colorslist="env | egrep 'COLOR_\w*'"  # lists all the colors
-
-function colors() {
-	local color
-	for color in `colorslist -o`
-		do echo -e "${!color}$color$COLOR_NC"
-	done
-}
-
-# Try to determine whether the 'ls' command on this system
-# supports the "--color" option
-
-if $(ls --color >/dev/null 2>&1); then
-    alias ls='ls --color=auto';
-fi
-
-PS1="\[$COLOR_BLUE\]\u@\h:\w\n"
-PS1="$PS1\[$COLOR_RED\]\${CURRENT_MODE:+[\$CURRENT_MODE] }"
-PS1="$PS1\[$COLOR_GREEN\]\d \t \[$COLOR_GRAY\]\$ \[$COLOR_NC\]"
-
 # Useful shell aliases
 
 alias ..='cd ..'
@@ -129,3 +83,6 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
+PS1="\[$COLOR_BLUE\]\u@\h:\w\n"
+PS1="$PS1\[$COLOR_RED\]\${CURRENT_MODE:+[\$CURRENT_MODE] }"
+PS1="$PS1\[$COLOR_GREEN\]\d \t \[$COLOR_GRAY\]\$ \[$COLOR_NC\]"
