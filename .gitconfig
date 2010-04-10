@@ -4,6 +4,8 @@
 [color]
 	ui = auto
 [alias]
+	co = checkout
+	br = branch
 	st = status
 	stat = status
 	svn-checkout = svn clone -s
