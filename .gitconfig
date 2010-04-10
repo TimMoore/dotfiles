@@ -9,3 +9,5 @@
 	st = status
 	stat = status
 	svn-checkout = svn clone -s
+[github]
+	user = TimMoore
