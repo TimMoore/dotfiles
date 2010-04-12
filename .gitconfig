@@ -6,6 +6,7 @@
 [alias]
 	co = checkout
 	br = branch
+	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	st = status
 	stat = status
 	svn-checkout = svn clone -s
