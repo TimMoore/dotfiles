@@ -34,8 +34,7 @@ else
 fi
 export EDITOR
 
-export MAVEN_OPTS="-Xmx256m -Dfile.encoding=ISO-8859-1 -Djava.awt.headless=true"
-
+export MAVEN_OPTS="-Xms350m -Xmx512m -Dfile.encoding=ISO-8859-1 -Djava.awt.headless=true"
 
 function rgb2hex() {
     perl -e '(shift @ARGV) =~ /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ && printf "#%02X%02X%02X\n", $1, $2, $3' "$@"
