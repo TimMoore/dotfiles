@@ -34,6 +34,11 @@ else
 fi
 export EDITOR
 
+if [ -n "`which less`" ]; then
+    PAGER="`which less` -FSRX"
+    export PAGER
+fi
+
 export MAVEN_OPTS="-Xms350m -Xmx512m -Dfile.encoding=ISO-8859-1 -Djava.awt.headless=true"
 
 function rgb2hex() {

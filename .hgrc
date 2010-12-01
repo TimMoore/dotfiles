@@ -1,0 +1,8 @@
+[ui]
+username = Tim Moore <tmoore@atlassian.com>
+
+[extensions]
+color =
+hgext.graphlog =
+hgsubversion =
+pager =
