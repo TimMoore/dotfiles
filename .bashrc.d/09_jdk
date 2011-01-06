@@ -116,7 +116,17 @@ alias j5='setJava 1.5.0'
 alias fail='find . -path "*/surefire-reports/*.txt" |xargs grep -l '\''FAILURE'\'' |xargs mate'
 
 function idea() {
-    IDEA=`ls -1d /Applications/IntelliJ\ * | tail -n1`
+    # Grab the latest version of IDEA:
+    #   1. List all of the directories that match the IDEA filename pattern.
+    #   2. Parse out the version number and move it to the front of each line.
+    #   3. Numerically sort each line.
+    #   4. Remove the version number prefix.
+    #   5. Pull out the last line.
+    IDEA=`ls -d /Applications/IntelliJ\ IDEA\ * \
+          | awk '{print $NF, $0}' \
+          | sort -n \
+          | cut -d ' ' -f2- \
+          | tail -n1`
 
     if [ -f "$1" ]; then      # first, try any filename provided
         open -a "$IDEA" "$1"
