@@ -5,4 +5,5 @@ username = Tim Moore <tmoore@atlassian.com>
 color =
 hgext.graphlog =
 hgsubversion =
+mercurial_keyring =
 pager =
