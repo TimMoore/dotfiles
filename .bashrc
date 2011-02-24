@@ -1,3 +1,21 @@
+# Utility functions used in the rest of the script
+
+try_to_source() {
+    local file="$1"
+
+    [[ -f $file && -r $file ]] && . $file
+}
+
+source_everything_in() {
+    local dir="$1"
+
+    if [[ -d $dir && -r $dir && -x $dir ]]; then
+        for file in "$dir"/*; do
+           try_to_source $file
+        done
+    fi
+}
+
 # bash/readline options
 
 export HISTCONTROL=ignoredups # Ignores dupes in the history
@@ -21,6 +39,8 @@ elif [ -f /opt/local/etc/bash_completion ]; then
 elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+source_everything_in ~/.bash_completion.d
 
 # Ignore .svn directories when autocompleting
 export FIGNORE=.svn
@@ -56,16 +76,10 @@ export HISTSIZE=10000
 
 alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs svn stat'
 
-# Include host-specific .bashrc file
-[ -f ~/.bashrc.`hostname -s` ] && . ~/.bashrc.`hostname -s`
+source_everything_in ~/.bashrc.d
 
-# Include everything in .bashrc.d
-if [ -d ~/.bashrc.d ]; then
-	for bashrc in ~/.bashrc.d/*; do
-	    [ -f $bashrc ] || continue
-		. $bashrc
-	done
-fi
+# Source host-specific .bashrc file
+[ -f ~/.bashrc.`hostname -s` ] && . ~/.bashrc.`hostname -s`
 
 PS1="\[$COLOR_BLUE\]\u@\h:\w\n"
 PS1="$PS1\[$COLOR_RED\]\${CURRENT_MODE:+[\$CURRENT_MODE] }"
