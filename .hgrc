@@ -8,3 +8,6 @@ hgsubversion =
 mercurial_keyring =
 pager =
 rebase =
+
+[pager]
+attend = annotate, cat, diff, export, glog, heads, log, qdiff
