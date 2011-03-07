@@ -55,8 +55,9 @@ fi
 export EDITOR
 
 if [ -n "`which less`" ]; then
-    PAGER="`which less` -FSRX"
-    export PAGER
+    PAGER="`which less`"
+    LESS="-FSRX"
+    export PAGER LESS
 fi
 
 export MAVEN_OPTS="-Xms350m -Xmx512m -Dfile.encoding=ISO-8859-1 -Djava.awt.headless=true"
