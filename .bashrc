@@ -56,7 +56,7 @@ export EDITOR
 
 if [ -n "`which less`" ]; then
     PAGER="`which less`"
-    LESS="-FSRX"
+    LESS="FSRX"
     export PAGER LESS
 fi
 
