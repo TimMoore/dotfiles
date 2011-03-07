@@ -7,3 +7,4 @@ hgext.graphlog =
 hgsubversion =
 mercurial_keyring =
 pager =
+rebase =
