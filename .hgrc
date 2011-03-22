@@ -6,6 +6,7 @@ color =
 hgext.graphlog =
 hgsubversion =
 mercurial_keyring =
+mq =
 pager =
 rebase =
 
