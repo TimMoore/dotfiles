@@ -16,7 +16,10 @@ source_everything_in() {
     fi
 }
 
-# bash/readline options
+# bash/readline/tty options
+
+# Disable ctrl-s and ctrl-q for starting and stopping the terminal
+stty -ixon -ixoff stop undef start undef
 
 export HISTCONTROL=ignoredups # Ignores dupes in the history
 
