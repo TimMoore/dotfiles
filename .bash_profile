@@ -11,6 +11,9 @@
 [ -f ~/.bashrc ] &&
   source ~/.bashrc
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] &&
+    . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+
 # When you start an interactive shell (log in, open terminal or iTerm
 # in OS X, or create a new tab in iTerm) the following files are read and
 # run, in this order:
