@@ -20,3 +20,11 @@ function idea() {
     fi
 }
 
+unjar() {
+    local file=$(find `pwd` -name "$1")
+    local dir=`dirname "$file"`
+    local base=`basename -s .jar "$file"`
+    mkdir "$dir/$base"
+    cd "$dir/$base"
+    jar xf "$file"
+}
