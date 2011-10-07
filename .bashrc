@@ -85,7 +85,7 @@ source_everything_in ~/.bashrc.d
 # Source host-specific .bashrc file
 [ -f ~/.bashrc.`hostname -s` ] && . ~/.bashrc.`hostname -s`
 
-PS1='\['"$COLOR_WHITE"'\][\t]\['"$COLOR_NC"'\]' # white timestamp
-PS1+=' \['$COLOR_LIGHT_GREEN'\]\u@\h\['$COLOR_NC'\]' # green user@host
-PS1+=':\['$COLOR_BLUE'\]\w\['$COLOR_NC'\]' # blue path
+PS1='\['"$COLOR_LIGHT_GREEN"'\][\t]\['"$COLOR_NC"'\]' # timestamp
+PS1+=' \['$COLOR_GREEN'\]\u@\h\['$COLOR_NC'\]' # user@host
+PS1+=':\['$COLOR_BLUE'\]\w\['$COLOR_NC'\]' # path
 PS1+='\$ ' # no-color prompt
