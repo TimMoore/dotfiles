@@ -4,7 +4,6 @@ username = Tim Moore <tmoore@atlassian.com>
 [extensions]
 color =
 hgext.graphlog =
-hgsubversion =
 mercurial_keyring =
 mq =
 pager =
