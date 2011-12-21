@@ -12,3 +12,5 @@
 	svn-checkout = svn clone -s
 [github]
 	user = TimMoore
+[merge]
+	tool = opendiff
