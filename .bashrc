@@ -63,8 +63,6 @@ if [ -n "`which less`" ]; then
     export PAGER LESS
 fi
 
-export MAVEN_OPTS="-Xms256m -Xmx512m -Dfile.encoding=ISO-8859-1 -Djava.awt.headless=true -XX:+UseCompressedOops"
-
 function rgb2hex() {
     perl -e '(shift @ARGV) =~ /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ && printf "#%02X%02X%02X\n", $1, $2, $3' "$@"
 }
