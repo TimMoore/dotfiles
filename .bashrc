@@ -18,6 +18,9 @@ source_everything_in() {
 
 # bash/readline/tty options
 
+# Disable locale-sensitive string comparison for performance
+export LC_ALL=C
+
 # Disable ctrl-s and ctrl-q for starting and stopping the terminal
 stty -ixon -ixoff stop undef start undef
 
