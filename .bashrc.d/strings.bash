@@ -7,3 +7,7 @@ str_join() {
     local sep="$1"
     awk 'BEGIN { ORS="'"$sep"'" } ; { print }' | sed "s/$sep\$//"
 }
+
+trim() {
+    sed 's/[[:space:]]//'
+}
