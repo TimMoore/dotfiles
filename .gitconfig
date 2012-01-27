@@ -10,6 +10,7 @@
 	st = status
 	stat = status
 	svn-checkout = svn clone -s
+	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
 [github]
 	user = TimMoore
 [merge]
