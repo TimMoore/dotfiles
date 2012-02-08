@@ -51,9 +51,6 @@ fi
 
 source_everything_in ~/.bash_completion.d
 
-# Ignore .svn directories when autocompleting
-export FIGNORE=.svn
-
 # Environment
 
 if [ -n "`which mate`" ]; then
@@ -82,8 +79,6 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 
 # Development aliases and functions
-
-alias svn-dirty='find . -type d -exec test -d \{\}/.svn \; -prune -print|xargs svn stat'
 
 source_everything_in ~/.bashrc.d
 
