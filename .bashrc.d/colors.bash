@@ -21,6 +21,11 @@ COLOR_YELLOW='\033[1;33m'
 COLOR_GRAY='\033[0;30m'
 COLOR_LIGHT_GRAY='\033[0;37m'
 
+PS1='\['"$COLOR_LIGHT_GREEN"'\][\t]\['"$COLOR_NC"'\]' # timestamp
+PS1+=' \['$COLOR_GREEN'\]\u@\h\['$COLOR_NC'\]' # user@host
+PS1+=':\['$COLOR_BLUE'\]\w\['$COLOR_NC'\]' # path
+PS1+='\$ ' # no-color prompt
+
 colors() {
     local color
     for color in "${!COLOR_@}"; do
