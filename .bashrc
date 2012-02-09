@@ -16,7 +16,31 @@ source_everything_in() {
     fi
 }
 
-# bash/readline/tty options
+## Variables used by bash
+
+# HISTCONTROL
+#       A colon-separated list of values controlling how commands are saved on
+#       the history list. If the list of values includes ignorespace, lines
+#       which begin with a space character are not saved in the history list.
+#       A value of ignoredups causes lines matching the previous history entry
+#       to not be saved. A value of ignoreboth is shorthand for ignorespace
+#       and ignoredups. A value of erasedups causes all previous lines
+#       matching the current line to be removed from the history list before
+#       that line is saved. Any value not in the above list is ignored. If
+#       HISTCONTROL is unset, or does not include a valid value, all lines
+#       read by the shell parser are saved on the history list, subject to the
+#       value of HISTIGNORE. The second and subsequent lines of a multi-line
+#       compound command are not tested, and are added to the history
+#       regardless of the value of HISTCONTROL.
+#
+HISTCONTROL="ignorespace:erasedups"
+# HISTSIZE
+#       The number of commands to remember in the command history (see HISTORY
+#       below). The default value is 500.
+#
+HISTSIZE=10000
+
+## Environment
 
 # Disable locale-sensitive string comparison for performance
 export LC_ALL=C
@@ -27,7 +51,6 @@ export LESSCHARSET=utf-8
 # Disable ctrl-s and ctrl-q for starting and stopping the terminal
 stty -ixon -ixoff stop undef start undef
 
-export HISTCONTROL=ignoredups # Ignores dupes in the history
 
 bind "set completion-ignore-case on"
 bind "set bell-style none"
@@ -67,8 +90,6 @@ if [ -n "`which less`" ]; then
     export PAGER LESS
 fi
 
-export HISTCONTROL=erasedups
-export HISTSIZE=10000
 
 # Development aliases and functions
 
