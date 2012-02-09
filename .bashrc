@@ -53,9 +53,6 @@ stty -ixon -ixoff stop undef start undef
 
 
 if [ -n "`which brew`" ]; then
-    if [ -d "`brew --prefix`/bin" ]; then
-        PATH="`brew --prefix`/bin:${PATH//`brew --prefix`\/bin?(:)}"
-    fi
     if [ -f `brew --prefix`/etc/bash_completion ]; then
         . `brew --prefix`/etc/bash_completion
     fi
