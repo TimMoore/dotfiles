@@ -52,10 +52,6 @@ export LESSCHARSET=utf-8
 stty -ixon -ixoff stop undef start undef
 
 
-bind "set completion-ignore-case on"
-bind "set bell-style none"
-bind "set show-all-if-ambiguous on"
-
 if [ -n "`which brew`" ]; then
     if [ -d "`brew --prefix`/bin" ]; then
         PATH="`brew --prefix`/bin:${PATH//`brew --prefix`\/bin?(:)}"

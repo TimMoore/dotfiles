@@ -1,2 +1,6 @@
 "\e[5D": beginning-of-line
 "\e[5C": end-of-line
+
+set completion-ignore-case on
+set bell-style none
+set show-all-if-ambiguous on
