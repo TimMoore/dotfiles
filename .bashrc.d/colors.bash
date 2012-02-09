@@ -24,9 +24,20 @@ COLOR_MAGENTA_BOLD='\033[1;35m'
 COLOR_CYAN_BOLD='\033[1;36m'
 COLOR_WHITE_BOLD='\033[1;37m'
 
-PS1='\['"$COLOR_NC_BOLD"'\][\t]\['"$COLOR_NC"'\]' # timestamp
-PS1+=' \['$COLOR_GREEN'\]\u@\h\['$COLOR_NC'\]' # user@host
-PS1+=':\['$COLOR_BLUE'\]\w\['$COLOR_NC'\]' # path
+_prompt_escape() {
+    echo "\[$@\]"
+}
+
+_prompt_color() {
+    local color="COLOR_${1}"; shift
+    echo $(_prompt_escape "${!color}")${@}$(_prompt_escape "${COLOR_NC}")
+}
+
+PS1="$(_prompt_color NC_BOLD '[\t]')" # timestamp
+PS1+=' '
+PS1+="$(_prompt_color GREEN '\u@\h')" # user@host
+PS1+=':'
+PS1+="$(_prompt_color BLUE '\w')" # path
 PS1+='\$ ' # no-color prompt
 
 colors() {
