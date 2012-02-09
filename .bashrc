@@ -73,5 +73,6 @@ fi
 
 source_everything_in ~/.bashrc.d
 
-# Source host-specific .bashrc file
-[ -f ~/.bashrc.`hostname -s` ] && . ~/.bashrc.`hostname -s`
+# Include host-specific .bashrc file.
+# This is done last to allow for host-specific overrides of defaults.
+try_to_source "$HOME/.bashrc.`hostname -s`"
