@@ -55,3 +55,12 @@ export LESS_TERMCAP_so=$'\E[01;44;33m' # 'standout' mode
 export LESS_TERMCAP_se=`echo -e $COLOR_NC` # end 'standout' mode
 
 export LESS_TERMCAP_me=`echo -e $COLOR_NC` # end appearance modes
+
+
+function rgb2hex() {
+    perl -e '(shift @ARGV) =~ /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ && printf "#%02X%02X%02X\n", $1, $2, $3' "$@"
+}
+
+function hex2rgb() {
+    perl -e '(shift @ARGV) =~ /#([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})/ && printf "rgb(%d, %d, %d)\n", hex($1), hex($2), hex($3)' "$@";
+}
