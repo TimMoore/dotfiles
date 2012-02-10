@@ -51,14 +51,6 @@ export LESSCHARSET=utf-8
 
 # Environment
 
-if [ -n "`which mate`" ]; then
-    EDITOR='mate -w'
-    export GIT_EDITOR='mate -w -l 1'
-else
-    EDITOR=`which vi`
-fi
-export EDITOR
-
 if [ -n "`which less`" ]; then
     PAGER="`which less`"
     LESS="FSRX"
