@@ -16,16 +16,16 @@ idea() {
     elif [ -f pom.xml ]; then # second, try pom.xml
         open -a "$IDEA" pom.xml
     elif [ -f *.ipr ]; then   # third, try any IDEA project files
-        open -a "$IDEA" `ls -1d *.ipr | head -n1`
+        open -a "$IDEA" $(ls -1d *.ipr | head -n1)
     else                      # finally, just open IDEA
         open "$IDEA"
     fi
 }
 
 unjar() {
-    local file=$(find `pwd` -name "$1")
-    local dir=`dirname "$file"`
-    local base=`basename -s .jar "$file"`
+    local file=$(find $(pwd) -name "$1")
+    local dir=$(dirname "$file")
+    local base=$(basename -s .jar "$file")
     mkdir "$dir/$base"
     cd "$dir/$base"
     jar xf "$file"

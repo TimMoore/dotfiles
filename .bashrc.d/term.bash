@@ -26,7 +26,7 @@
 # - Opens new tabs by default.  The '-t' switch has been replaced with a '-w'
 #   switch to open a new window instead.
 #
-if [ -n "`which osascript`" ]; then
+if [ -n "$(which osascript)" ]; then
 	term() {
 		local OPTION EXIT TAB=1 POSITION SIZE OPTIND=1 WD COMMAND
 

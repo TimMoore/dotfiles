@@ -20,8 +20,8 @@
 #
 
 # Include host-specific .bash_profile file.
-[[ -s "$HOME/.bash_profile.`hostname -s`" ]] &&
-    . "$HOME/.bash_profile.`hostname -s`"
+[[ -s "$HOME/.bash_profile.$(hostname -s)" ]] &&
+    . "$HOME/.bash_profile.$(hostname -s)"
 
 # Include .bashrc.
 [[ -s "$HOME/.bashrc" ]] &&

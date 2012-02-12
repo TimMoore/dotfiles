@@ -4,6 +4,6 @@ find_hq() {
 }
 
 open_hq() {
-    open "http://`find_hq "$@"`"
+    open "http://$(find_hq "$@")"
 }
 
