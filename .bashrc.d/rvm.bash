@@ -1,3 +1,2 @@
 # Load RVM into a shell session.
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] &&
-    . "${HOME}/.rvm/scripts/rvm"
+try_to_source "${HOME}/.rvm/scripts/rvm"
