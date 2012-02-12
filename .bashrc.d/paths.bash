@@ -41,8 +41,6 @@ function add_prefix() {
             PATH="$(prepend_path ${prefix}/sbin ${PATH})"
         is_rx_dir "${prefix}/bin" &&
             PATH="$(prepend_path ${prefix}/bin ${PATH})"
-        is_rx_dir "${prefix}/share/man" &&
-            MANPATH="$(prepend_path "${prefix}/share/man" "${MANPATH}")"
     fi
 }
 
@@ -52,4 +50,4 @@ add_prefix "/opt/local"
 # Let apps in /usr/local override everything
 add_prefix "/usr/local"
 
-export PATH MANPATH
+export PATH
