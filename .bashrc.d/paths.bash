@@ -27,17 +27,29 @@ function prepend_path() {
     echo "${path_fragment}:${path}"
 }
 
-# Setting the path for MacPorts.
-if [ -d "/opt/local" ]; then
-    PATH="$(prepend_path "/opt/local/bin:/opt/local/sbin" "${PATH}")"
-    MANPATH="$(prepend_path "/opt/local/share/man" "${MANPATH}")"
-fi
+function is_rx_dir() {
+    local dir="${1}"
 
+    [[ -d "${dir}" && -r "${dir}" && -x "${dir}" ]]
+}
+
+function add_prefix() {
+    local prefix="${1}"
+
+    if is_rx_dir "${prefix}"; then
+        is_rx_dir "${prefix}/sbin" &&
+            PATH="$(prepend_path ${prefix}/sbin ${PATH})"
+        is_rx_dir "${prefix}/bin" &&
+            PATH="$(prepend_path ${prefix}/bin ${PATH})"
+        is_rx_dir "${prefix}/share/man" &&
+            MANPATH="$(prepend_path "${prefix}/share/man" "${MANPATH}")"
+    fi
+}
+
+# Setting the path for MacPorts.
+add_prefix "/opt/local"
 
 # Let apps in /usr/local override everything
-if [ -d "/usr/local" ]; then
-    PATH="$(prepend_path "/usr/local/bin:/usr/local/sbin" "${PATH}")"
-    MANPATH="$(prepend_path "/usr/local/share/man" "${MANPATH}")"
-fi
+add_prefix "/usr/local"
 
 export PATH MANPATH
