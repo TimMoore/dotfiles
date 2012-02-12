@@ -44,9 +44,6 @@ function add_prefix() {
     fi
 }
 
-# Setting the path for MacPorts.
-add_prefix "/opt/local"
-
 # Let apps in /usr/local override everything
 add_prefix "/usr/local"
 
