@@ -63,17 +63,17 @@ fi
 # Inspired by http://github.com/anveo/dotfiles
 # and http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
 
-export LESS_TERMCAP_mb=$(echo -e $COLOR_LIGHT_RED) # 'blinking' text
-export LESS_TERMCAP_md=$(echo -e $COLOR_LIGHT_BLUE) # 'bold' text
+export LESS_TERMCAP_mb=$(echo -e "$COLOR_LIGHT_RED") # 'blinking' text
+export LESS_TERMCAP_md=$(echo -e "$COLOR_LIGHT_BLUE") # 'bold' text
 
-export LESS_TERMCAP_us=$(echo -e $COLOR_LIGHT_GREEN) # 'underlined' text
-export LESS_TERMCAP_ue=$(echo -e $COLOR_NC) # end 'underlined' text
+export LESS_TERMCAP_us=$(echo -e "$COLOR_LIGHT_GREEN") # 'underlined' text
+export LESS_TERMCAP_ue=$(echo -e "$COLOR_NC") # end 'underlined' text
 
 export LESS_TERMCAP_so=$'\E[01;44;33m' # 'standout' mode
 # (blue highlight, bold brown text)
-export LESS_TERMCAP_se=$(echo -e $COLOR_NC) # end 'standout' mode
+export LESS_TERMCAP_se=$(echo -e "$COLOR_NC") # end 'standout' mode
 
-export LESS_TERMCAP_me=$(echo -e $COLOR_NC) # end appearance modes
+export LESS_TERMCAP_me=$(echo -e "$COLOR_NC") # end appearance modes
 
 
 function rgb2hex() {

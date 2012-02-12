@@ -3,15 +3,15 @@
 try_to_source() {
     local file="$1"
 
-    [[ -f $file && -r $file ]] && . $file
+    [[ -f "$file" && -r "$file" ]] && . "$file"
 }
 
 source_everything_in() {
     local dir="$1"
 
-    if [[ -d $dir && -r $dir && -x $dir ]]; then
+    if [[ -d "$dir" && -r "$dir" && -x "$dir" ]]; then
         for file in "$dir"/*; do
-           try_to_source $file
+           try_to_source "$file"
         done
     fi
 }
