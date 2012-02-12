@@ -3,11 +3,11 @@
 #
 if [ -d ~/.Trash ]; then
     function trash {
-        if [ $# -ne 1 ]; then
+        if [ ${#} -ne 1 ]; then
             echo 1>&2 "usage: trash file"
             return 64 # 64 is the EX_USAGE exit code on BSD
         fi
-        mv "$1" ~/.Trash
+        mv "${1}" ~/.Trash
     }
 fi
 

@@ -25,7 +25,7 @@ COLOR_CYAN_BOLD='\033[1;36m'
 COLOR_WHITE_BOLD='\033[1;37m'
 
 _prompt_escape() {
-    echo "\[$@\]"
+    echo "\[${@}\]"
 }
 
 _prompt_color() {
@@ -43,7 +43,7 @@ PS1+='\$ ' # no-color prompt
 colors() {
     local color
     for color in "${!COLOR_@}"; do
-        echo -e "${!color}$color$COLOR_NC"
+        echo -e "${!color}${color}${COLOR_NC}"
     done
 }
 
@@ -63,23 +63,23 @@ fi
 # Inspired by http://github.com/anveo/dotfiles
 # and http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
 
-export LESS_TERMCAP_mb=$(echo -e "$COLOR_LIGHT_RED") # 'blinking' text
-export LESS_TERMCAP_md=$(echo -e "$COLOR_LIGHT_BLUE") # 'bold' text
+export LESS_TERMCAP_mb=$(echo -e "${COLOR_LIGHT_RED}") # 'blinking' text
+export LESS_TERMCAP_md=$(echo -e "${COLOR_LIGHT_BLUE}") # 'bold' text
 
-export LESS_TERMCAP_us=$(echo -e "$COLOR_LIGHT_GREEN") # 'underlined' text
-export LESS_TERMCAP_ue=$(echo -e "$COLOR_NC") # end 'underlined' text
+export LESS_TERMCAP_us=$(echo -e "${COLOR_LIGHT_GREEN}") # 'underlined' text
+export LESS_TERMCAP_ue=$(echo -e "${COLOR_NC}") # end 'underlined' text
 
 export LESS_TERMCAP_so=$'\E[01;44;33m' # 'standout' mode
 # (blue highlight, bold brown text)
-export LESS_TERMCAP_se=$(echo -e "$COLOR_NC") # end 'standout' mode
+export LESS_TERMCAP_se=$(echo -e "${COLOR_NC}") # end 'standout' mode
 
-export LESS_TERMCAP_me=$(echo -e "$COLOR_NC") # end appearance modes
+export LESS_TERMCAP_me=$(echo -e "${COLOR_NC}") # end appearance modes
 
 
 function rgb2hex() {
-    perl -e '(shift @ARGV) =~ /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ && printf "#%02X%02X%02X\n", $1, $2, $3' "$@"
+    perl -e '(shift @ARGV) =~ /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ && printf "#%02X%02X%02X\n", $1, $2, $3' "${@}"
 }
 
 function hex2rgb() {
-    perl -e '(shift @ARGV) =~ /#([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})/ && printf "rgb(%d, %d, %d)\n", hex($1), hex($2), hex($3)' "$@";
+    perl -e '(shift @ARGV) =~ /#([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})/ && printf "rgb(%d, %d, %d)\n", hex($1), hex($2), hex($3)' "${@}";
 }
