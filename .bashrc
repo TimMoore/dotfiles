@@ -1,4 +1,4 @@
-# Utility functions used in the rest of the script
+## Utility functions used in the rest of the script:
 
 try_to_source() {
     local file="$1"
@@ -16,7 +16,7 @@ source_everything_in() {
     fi
 }
 
-## Variables used by bash
+## Variables used by bash:
 
 # HISTCONTROL
 #       A colon-separated list of values controlling how commands are saved on
@@ -40,21 +40,16 @@ HISTCONTROL="ignorespace:erasedups"
 #
 HISTSIZE=10000
 
-## Environment
+## Environment:
 
-# Disable locale-sensitive string comparison for performance
+# Disable locale-sensitive string comparison for performance.
 export LC_ALL=C
 # Turn UTF-8 on explicitly for less, which
-# otherwise assumes latin-1 with LC_ALL=C
+# otherwise assumes latin-1 with LC_ALL=C.
 export LESSCHARSET=utf-8
 
 
-# Environment
-
-
-
-# Development aliases and functions
-
+# Include individual bash configuration files.
 source_everything_in ~/.bashrc.d
 
 # Include host-specific .bashrc file.
