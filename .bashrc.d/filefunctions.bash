@@ -2,7 +2,7 @@
 # This just moves the named files (or directories) to the trash.
 #
 if [ -d ~/.Trash ]; then
-    function trash {
+    trash() {
         if [ ${#} -lt 1 ]; then
             echo 1>&2 "usage: trash file ..."
             return 64 # 64 is the EX_USAGE exit code on BSD
@@ -17,7 +17,7 @@ alias ..='cd ..;'
 alias ...='.. ..'
 alias ....='.. .. ..'
 
-function emptydirs {
+emptydirs() {
     find . -not '(' -name .svn -prune ')' -type d \
         -exec sh -c '[ $(ls -1 "{}" | wc -l) -eq 0 ]' ';' \
         -print

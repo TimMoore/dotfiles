@@ -1,10 +1,10 @@
-function is_rx_dir() {
+is_rx_dir() {
     local dir="${1}"
 
     [[ -d "${dir}" && -r "${dir}" && -x "${dir}" ]]
 }
 
-function prepend_to_path() {
+prepend_to_path() {
     local dir="${1}" path="${2}"
 
     # This prints the value of dir, then if path is defined,
@@ -12,17 +12,17 @@ function prepend_to_path() {
     echo "${dir}${path:+:${path}}"
 }
 
-function path_first_element() {
+path_first_element() {
     local path="${1}"
     echo "${path%%:*}"
 }
 
-function path_remaining_elements() {
+path_remaining_elements() {
     local path="${1}"
     echo "${path##+([^:])?(:)}"
 }
 
-function remove_from_path() {
+remove_from_path() {
     local remove="${1}" path="${2}"
 
     if [[ -n "${path}" ]]; then
@@ -61,7 +61,7 @@ function remove_from_path() {
 #   $ MANPATH="$(prepend_path /usr/local/man ${MANPATH})"
 #
 
-function prepend_path() {
+prepend_path() {
     local path_fragment="${1}" path="${2}"
 
     if [[ -n "${path_fragment}" ]]; then
@@ -83,7 +83,7 @@ function prepend_path() {
     fi
 }
 
-function add_prefix() {
+add_prefix() {
     local prefix="${1}"
 
     PATH="$(prepend_path "${prefix}/bin:${prefix}/sbin" ${PATH})"

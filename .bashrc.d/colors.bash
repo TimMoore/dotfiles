@@ -76,7 +76,7 @@ export LESS_TERMCAP_se=$(echo -e "${COLOR_NC}") # end 'standout' mode
 export LESS_TERMCAP_me=$(echo -e "${COLOR_NC}") # end appearance modes
 
 
-function rgb2hex() {
+rgb2hex() {
     perl -e '
         (shift @ARGV) =~
             /rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/ &&
@@ -85,7 +85,7 @@ function rgb2hex() {
     "${@}"
 }
 
-function hex2rgb() {
+hex2rgb() {
     perl -e '
         (shift @ARGV) =~
             /#?([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})/ &&
