@@ -1,13 +1,13 @@
 # Define a "trash" function on systems with a ~/.Trash directory.
-# This just moves the named file (or directory) to the trash.
+# This just moves the named files (or directories) to the trash.
 #
 if [ -d ~/.Trash ]; then
     function trash {
-        if [ ${#} -ne 1 ]; then
-            echo 1>&2 "usage: trash file"
+        if [ ${#} -lt 1 ]; then
+            echo 1>&2 "usage: trash file ..."
             return 64 # 64 is the EX_USAGE exit code on BSD
         fi
-        mv "${1}" ~/.Trash
+        mv "${@}" ~/.Trash
     }
 fi
 
