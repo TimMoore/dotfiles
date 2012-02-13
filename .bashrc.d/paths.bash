@@ -1,3 +1,45 @@
+function is_rx_dir() {
+    local dir="${1}"
+
+    [[ -d "${dir}" && -r "${dir}" && -x "${dir}" ]]
+}
+
+function prepend_to_path() {
+    local dir="${1}" path="${2}"
+
+    # This prints the value of dir, then if path is defined,
+    # print a colon, then the value of path.
+    echo "${dir}${path:+:${path}}"
+}
+
+function path_first_element() {
+    local path="${1}"
+    echo "${path%%:*}"
+}
+
+function path_remaining_elements() {
+    local path="${1}"
+    echo "${path##+([^:])?(:)}"
+}
+
+function remove_from_path() {
+    local remove="${1}" path="${2}"
+
+    if [[ -n "${path}" ]]; then
+        local dir="$(path_first_element "${path}")"
+        local rest="$(path_remaining_elements "${path}")"
+
+        [[ -n "${rest}" ]] &&
+            rest="$(remove_from_path "${remove}" "${rest}")"
+
+        if [[ "${dir}" = "${remove}" ]]; then
+            echo "${rest}"
+        else
+            prepend_to_path "${dir}" "${rest}"
+        fi
+    fi
+}
+
 # This can be used to prepend one or more directories to a path-like string.
 #
 # Usage:
@@ -18,30 +60,33 @@
 #   $ PATH="$(prepend_path /opt/local/bin:/opt/local/sbin ${PATH})"
 #   $ MANPATH="$(prepend_path /usr/local/man ${MANPATH})"
 #
+
 function prepend_path() {
-    local path_fragment="${1}" path="${2}" dir
-    # replace each ':' with a space in the path_fragment to loop over dirs
-    for dir in ${path_fragment//:/ }; do
-        path="${path//@(${dir}:|:${dir})/}" # strip dir from path
-    done
-    echo "${path_fragment}:${path}"
-}
+    local path_fragment="${1}" path="${2}"
 
-function is_rx_dir() {
-    local dir="${1}"
+    if [[ -n "${path_fragment}" ]]; then
+        # Take the first directory off the path fragment:
+        local dir="$(path_first_element "${path_fragment}")"
+        path="$(remove_from_path "${dir}" "${path}")"
 
-    [[ -d "${dir}" && -r "${dir}" && -x "${dir}" ]]
+        if is_rx_dir "${dir}"; then
+            # The remaining path fragment:
+            local rest="$(path_remaining_elements "${path_fragment}")"
+
+            path="$(prepend_path "${rest}" "${path}")"
+            prepend_to_path "${dir}" "${path}"
+        else
+            echo "${path}"
+        fi
+    else
+        echo "${path}"
+    fi
 }
 
 function add_prefix() {
     local prefix="${1}"
 
-    if is_rx_dir "${prefix}"; then
-        is_rx_dir "${prefix}/sbin" &&
-            PATH="$(prepend_path ${prefix}/sbin ${PATH})"
-        is_rx_dir "${prefix}/bin" &&
-            PATH="$(prepend_path ${prefix}/bin ${PATH})"
-    fi
+    PATH="$(prepend_path "${prefix}/bin:${prefix}/sbin" ${PATH})"
 }
 
 # Let apps in /usr/local override everything
