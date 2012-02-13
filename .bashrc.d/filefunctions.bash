@@ -18,5 +18,7 @@ alias ...='.. ..'
 alias ....='.. .. ..'
 
 function emptydirs {
-    find . -not \( -name .svn -prune \) -type d -exec sh -c '[ $(ls -1 "{}" | wc -l) -eq 0 ]' \; -print
+    find . -not '(' -name .svn -prune ')' -type d \
+        -exec sh -c '[ $(ls -1 "{}" | wc -l) -eq 0 ]' ';' \
+        -print
 }
