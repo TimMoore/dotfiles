@@ -39,7 +39,7 @@ source_everything_in() {
 
 
 # Include host-specific .bash_profile file.
-try_to_source "${HOME}/.bash_profile.$(hostname -s)"
+try_to_source ~/".bash_profile.$(hostname -s)"
 
 # Include .bashrc.
-try_to_source "${HOME}/.bashrc"
+try_to_source ~/.bashrc
