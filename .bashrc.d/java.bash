@@ -1,6 +1,6 @@
 fail() {
     find . -path "*/surefire-reports/*.txt" |
-        xargs grep -l "'FAILURE'" |
+        xargs grep -l "FAILURE" |
         xargs mate
 }
 
