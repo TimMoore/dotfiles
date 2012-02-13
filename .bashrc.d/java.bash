@@ -1,7 +1,7 @@
 fail() {
     find . -path "*/surefire-reports/*.txt" |
         xargs grep -l "FAILURE" |
-        xargs mate
+        xargs -o ${EDITOR}
 }
 
 idea() {
