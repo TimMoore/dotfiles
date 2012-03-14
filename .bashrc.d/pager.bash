@@ -1,4 +1,4 @@
-if which -s less; then
+if has less; then
     PAGER="$(which less)"
     LESS="FSRX"
     export PAGER LESS

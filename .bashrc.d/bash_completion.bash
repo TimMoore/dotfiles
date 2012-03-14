@@ -1,4 +1,4 @@
-if which -s brew; then
+if has brew; then
     brew="$(brew --prefix)"
     try_to_source "${brew}/etc/bash_completion"
     try_to_source "${brew}/Library/Contributions/brew_bash_completion.sh"
