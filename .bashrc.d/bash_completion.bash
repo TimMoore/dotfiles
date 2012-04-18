@@ -3,6 +3,9 @@ if has brew; then
     try_to_source "${brew}/etc/bash_completion"
     try_to_source "${brew}/Library/Contributions/brew_bash_completion.sh"
 fi
+if has pip; then
+    eval "$(pip completion --bash)"
+fi
 try_to_source "/opt/local/etc/bash_completion"
 try_to_source "/etc/bash_completion"
 
