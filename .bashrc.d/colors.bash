@@ -24,6 +24,26 @@ COLOR_MAGENTA_BOLD='\033[1;35m'
 COLOR_CYAN_BOLD='\033[1;36m'
 COLOR_WHITE_BOLD='\033[1;37m'
 
+# Solarized Aliases
+# Using the mappings from
+# https://github.com/tomislav/osx-lion-terminal.app-colors-solarized
+SOLARIZED_COLOR_BASE03="${COLOR_BLACK_BOLD}"
+SOLARIZED_COLOR_BASE02="${COLOR_BLACK}"
+SOLARIZED_COLOR_BASE01="${COLOR_GREEN_BOLD}"
+SOLARIZED_COLOR_BASE00="${COLOR_YELLOW_BOLD}"
+SOLARIZED_COLOR_BASE0="${COLOR_BLUE_BOLD}"
+SOLARIZED_COLOR_BASE1="${COLOR_CYAN_BOLD}"
+SOLARIZED_COLOR_BASE2="${COLOR_WHITE}"
+SOLARIZED_COLOR_BASE3="${COLOR_WHITE_BOLD}"
+SOLARIZED_COLOR_YELLOW="${COLOR_YELLOW}"
+SOLARIZED_COLOR_ORANGE="${COLOR_RED_BOLD}"
+SOLARIZED_COLOR_RED="${COLOR_RED}"
+SOLARIZED_COLOR_MAGENTA="${COLOR_MAGENTA}"
+SOLARIZED_COLOR_VIOLET="${COLOR_MAGENTA_BOLD}"
+SOLARIZED_COLOR_BLUE="${COLOR_BLUE}"
+SOLARIZED_COLOR_CYAN="${COLOR_CYAN}"
+SOLARIZED_COLOR_GREEN="${COLOR_GREEN}"
+
 _prompt_escape() {
     echo "\[${@}\]"
 }
@@ -41,10 +61,15 @@ PS1+="$(_prompt_color BLUE '\w')" # path
 PS1+='\$ ' # no-color prompt
 
 colors() {
+    local color_vars="\${!${1:-COLOR_}*}"
     local color
-    for color in "${!COLOR_@}"; do
+    for color in $(eval "echo ${color_vars}"); do
         echo -e "${!color}${color}${COLOR_NC}"
     done
+}
+
+solarized_colors() {
+    colors SOLARIZED_COLOR_
 }
 
 # Enable colors in various command-line tools
