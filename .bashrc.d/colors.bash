@@ -140,14 +140,14 @@ fi
 # Inspired by http://github.com/anveo/dotfiles
 # and http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
 
-export LESS_TERMCAP_mb=$(echo -e "${COLOR_LIGHT_RED}") # 'blinking' text
-export LESS_TERMCAP_md=$(echo -e "${COLOR_LIGHT_BLUE}") # 'bold' text
+export LESS_TERMCAP_mb=$(echo -e "${SOLARIZED_COLOR_RED}") # 'blinking' text
+export LESS_TERMCAP_md=$(echo -e "${SOLARIZED_COLOR_BLUE}") # 'bold' text
 
-export LESS_TERMCAP_us=$(echo -e "${COLOR_LIGHT_GREEN}") # 'underlined' text
+export LESS_TERMCAP_us=$(echo -e "${SOLARIZED_COLOR_GREEN}") # 'underlined' text
 export LESS_TERMCAP_ue=$(echo -e "${COLOR_NC}") # end 'underlined' text
 
-export LESS_TERMCAP_so=$'\E['"$(ansi_text -b -c YELLOW -g BLUE)m" # 'standout' mode
-# (blue highlight, bold brown text)
+export LESS_TERMCAP_so=$'\E['"$(ansi_text -b -c GREEN -g WHITE)m" # 'standout' mode
+# (white highlight, bold green text)
 export LESS_TERMCAP_se=$(echo -e "${COLOR_NC}") # end 'standout' mode
 
 export LESS_TERMCAP_me=$(echo -e "${COLOR_NC}") # end appearance modes
