@@ -3,26 +3,62 @@
 
 # Colors!
 
-COLOR_NC='\033[0m' # No Color
-COLOR_NC_BOLD='\033[1m' # No Color
+ANSI_RESET='0'
+ANSI_BOLD='1'
+ANSI_TEXT='3'
+ANSI_BG='4'
+ANSI_BLACK='0'
+ANSI_RED='1'
+ANSI_GREEN='2'
+ANSI_YELLOW='3'
+ANSI_BLUE='4'
+ANSI_MAGENTA='5'
+ANSI_CYAN='6'
+ANSI_WHITE='7'
 
-COLOR_BLACK='\033[0;30m'
-COLOR_RED='\033[0;31m'
-COLOR_GREEN='\033[0;32m'
-COLOR_YELLOW='\033[0;33m'
-COLOR_BLUE='\033[0;34m'
-COLOR_MAGENTA='\033[0;35m'
-COLOR_CYAN='\033[0;36m'
-COLOR_WHITE='\033[0;37m'
+ansi_text() {
+    local OPTIND OPTERR
+    local color_name color background style="${ANSI_RESET}"
+    while getopts "c:g:b" opt; do
+        case "${opt}" in
+            c)
+                color_name="ANSI_${OPTARG}"
+                [[ -n "${!color_name}" ]] &&
+                    color="${ANSI_TEXT}${!color_name}"
+                ;;
+            g)
+                color_name="ANSI_${OPTARG}"
+                [[ -n "${!color_name}" ]] &&
+                    background="${ANSI_BG}${!color_name}"
+                ;;
+            b)
+                style="${ANSI_BOLD}"
+                ;;
+        esac
+    done
+    echo "${style}${color:+;${color}}${background:+;${background}}"
+}
 
-COLOR_BLACK_BOLD='\033[1;30m'
-COLOR_RED_BOLD='\033[1;31m'
-COLOR_GREEN_BOLD='\033[1;32m'
-COLOR_YELLOW_BOLD='\033[1;33m'
-COLOR_BLUE_BOLD='\033[1;34m'
-COLOR_MAGENTA_BOLD='\033[1;35m'
-COLOR_CYAN_BOLD='\033[1;36m'
-COLOR_WHITE_BOLD='\033[1;37m'
+COLOR_NC="\033[$(ansi_text)m" # No Color
+COLOR_NC_BOLD="\033[$(ansi_text -b)m" # No Color
+
+COLOR_BLACK="\033[$(ansi_text -c BLACK)m"
+COLOR_RED="\033[$(ansi_text -c RED)m"
+COLOR_GREEN="\033[$(ansi_text -c GREEN)m"
+COLOR_YELLOW="\033[$(ansi_text -c YELLOW)m"
+COLOR_BLUE="\033[$(ansi_text -c BLUE)m"
+COLOR_MAGENTA="\033[$(ansi_text -c MAGENTA)m"
+COLOR_CYAN="\033[$(ansi_text -c CYAN)m"
+COLOR_WHITE="\033[$(ansi_text -c WHITE)m"
+
+COLOR_BLACK_BOLD="\033[$(ansi_text -b -c BLACK)m"
+COLOR_RED_BOLD="\033[$(ansi_text -b -c RED)m"
+COLOR_GREEN_BOLD="\033[$(ansi_text -b -c GREEN)m"
+COLOR_YELLOW_BOLD="\033[$(ansi_text -b -c YELLOW)m"
+COLOR_BLUE_BOLD="\033[$(ansi_text -b -c BLUE)m"
+COLOR_MAGENTA_BOLD="\033[$(ansi_text -b -c MAGENTA)m"
+COLOR_CYAN_BOLD="\033[$(ansi_text -b -c CYAN)m"
+COLOR_WHITE_BOLD="\033[$(ansi_text -b -c WHITE)m"
 
 # Solarized Aliases
 # Using the mappings from
@@ -89,7 +125,8 @@ solarized_colors() {
 
 # Enable colors in various command-line tools
 #
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export GREP_COLOR="$(ansi_text -c GREEN)"
+export GREP_OPTIONS='--color=auto'
 export CLICOLOR=1
 
 # Try to determine whether the 'ls' command on
@@ -109,7 +146,7 @@ export LESS_TERMCAP_md=$(echo -e "${COLOR_LIGHT_BLUE}") # 'bold' text
 export LESS_TERMCAP_us=$(echo -e "${COLOR_LIGHT_GREEN}") # 'underlined' text
 export LESS_TERMCAP_ue=$(echo -e "${COLOR_NC}") # end 'underlined' text
 
-export LESS_TERMCAP_so=$'\E[01;44;33m' # 'standout' mode
+export LESS_TERMCAP_so=$'\E['"$(ansi_text -b -c YELLOW -g BLUE)m" # 'standout' mode
 # (blue highlight, bold brown text)
 export LESS_TERMCAP_se=$(echo -e "${COLOR_NC}") # end 'standout' mode
 
