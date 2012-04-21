@@ -56,20 +56,23 @@ SOLARIZED_LIGHT_COMMENTS="${SOLARIZED_COLOR_BASE1}"
 SOLARIZED_LIGHT_TEXT="${SOLARIZED_COLOR_BASE00}"
 SOLARIZED_LIGHT_EM="${SOLARIZED_COLOR_BASE01}"
 
+# TODO need to find a better way to detect this
+SOLARIZED_MODE=DARK
+
 _prompt_escape() {
     echo "\[${@}\]"
 }
 
 _prompt_color() {
-    local color="COLOR_${1}"; shift
+    local color="${1}"; shift
     echo $(_prompt_escape "${!color}")${@}$(_prompt_escape "${COLOR_NC}")
 }
 
-PS1="$(_prompt_color NC_BOLD '[\t]')" # timestamp
+PS1="$(_prompt_color SOLARIZED_${SOLARIZED_MODE}_COMMENTS '[\t]')" # timestamp
 PS1+=' '
-PS1+="$(_prompt_color GREEN '\u@\h')" # user@host
+PS1+="$(_prompt_color SOLARIZED_COLOR_GREEN '\u@\h')" # user@host
 PS1+=':'
-PS1+="$(_prompt_color BLUE '\w')" # path
+PS1+="$(_prompt_color SOLARIZED_COLOR_BLUE '\w')" # path
 PS1+='\$ ' # no-color prompt
 
 colors() {
