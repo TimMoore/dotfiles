@@ -134,6 +134,11 @@ export CLICOLOR=1
 #
 if $(ls --color >/dev/null 2>&1); then
     alias ls='ls --color=auto';
+    local dircolors_file="${HOME}/.dircolors/dircolors-solarized/dircolors.ansi-universal"
+    if (has dircolors &&
+        [[ -f "${dircolors_file}" && -r "${dircolors_file}" ]]); then
+        eval $(dircolors "${dircolors_file}")
+    fi
 else
     # Set colors for BSD ls (Mac OS X)
     # Borrowed from https://github.com/seebi/dircolors-solarized/issues/10
