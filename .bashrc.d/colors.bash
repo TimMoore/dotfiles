@@ -134,6 +134,10 @@ export CLICOLOR=1
 #
 if $(ls --color >/dev/null 2>&1); then
     alias ls='ls --color=auto';
+else
+    # Set colors for BSD ls (Mac OS X)
+    # Borrowed from https://github.com/seebi/dircolors-solarized/issues/10
+    export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 fi
 
 # Colorful manpages
