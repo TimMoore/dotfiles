@@ -17,4 +17,4 @@
 [merge]
 	tool = opendiff
 [push]
-	default = upstream
+	default = tracking
