@@ -16,3 +16,5 @@
 	user = TimMoore
 [merge]
 	tool = opendiff
+[push]
+	default = upstream
