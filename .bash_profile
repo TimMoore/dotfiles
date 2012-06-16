@@ -37,17 +37,9 @@ source_everything_in() {
     fi
 }
 
-# BSD-based systems support the -s "silent" flag to which.
-# GNU-based systems do not, so fake it with a redirection.
-if (which -s which &>/dev/null) ; then
-    has() {
-        which -s "$@"
-    }
-else
-    has() {
-        which "$@" &>/dev/null
-    }
-fi
+has () {
+    hash "$@" &>/dev/null
+}
 
 # Include host-specific .bash_profile file.
 try_to_source ~/".bash_profile.$(hostname -s)"
