@@ -15,11 +15,13 @@ idea() {
 
     if [ -f "${1}" ]; then    # first, try any filename provided
         open -a "${IDEA}" "${1}"
-    elif [ -f pom.xml ]; then # second, try pom.xml
-        open -a "${IDEA}" pom.xml
-    elif [ -f *.ipr ]; then   # third, try any IDEA project files
+    elif [ -d .idea ]; then  # look for a .idea directory
+        open -a "${IDEA}" .
+    elif [ -f *.ipr ]; then   # try any IDEA project files
         open -a "${IDEA}" "$(ls -1d *.ipr | head -n1)"
-    else                      # finally, just open IDEA
+    elif [ -f pom.xml ]; then # is there a pom.xml?
+        open -a "${IDEA}" pom.xml
+    else                      # can't do anything smart; just open IDEA
         open "${IDEA}"
     fi
 }
