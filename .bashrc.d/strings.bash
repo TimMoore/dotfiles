@@ -8,5 +8,5 @@ str_join() {
     awk 'BEGIN { ORS="'"${sep}"'" } ; { print }' | sed "s/${sep}\$//"
 }
 trim() {
-    sed 's/[[:space:]]//'
+    sed 's/[[:space:]]//g'
 }
