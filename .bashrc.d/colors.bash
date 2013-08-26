@@ -104,13 +104,6 @@ _prompt_color() {
     echo $(_prompt_escape "${!color}")${@}$(_prompt_escape "${COLOR_NC}")
 }
 
-PS1="$(_prompt_color SOLARIZED_${SOLARIZED_MODE}_COMMENTS '[\t]')" # timestamp
-PS1+=' '
-PS1+="$(_prompt_color SOLARIZED_COLOR_GREEN '\u@\h')" # user@host
-PS1+=':'
-PS1+="$(_prompt_color SOLARIZED_COLOR_BLUE '\w')" # path
-PS1+='\$ ' # no-color prompt
-
 colors() {
     local color_vars="\${!${1:-COLOR_}*}"
     local color
