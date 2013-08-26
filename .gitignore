@@ -3,3 +3,4 @@
 !.bash_completion.d
 !.ssh
 !.subversion
+!.vim/
