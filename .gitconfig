@@ -29,3 +29,5 @@
 	trustExitCode = true
 [branch]
 	autosetuprebase = always
+[rebase]
+	autosquash = true
