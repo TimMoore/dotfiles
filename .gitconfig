@@ -16,6 +16,7 @@
 	user = TimMoore
 [merge]
 	tool = opendiff
+	conflictstyle = diff3
 [push]
 	default = tracking
 [core]
