@@ -9,4 +9,4 @@ GIT_PS1_SHOWCOLORHINTS=1
 prompt_timestamp="$(_prompt_color SOLARIZED_${SOLARIZED_MODE}_COMMENTS '[\t]')"
 prompt_path="$(_prompt_color SOLARIZED_COLOR_BLUE '\w')"
 
-export PROMPT_COMMAND="__git_ps1 '$prompt_timestamp \u@\h:$prompt_path' ' \$ '; $PROMPT_COMMAND"
+PROMPT_COMMAND="__git_ps1 '$prompt_timestamp \u@\h:$prompt_path' ' \$ '; $PROMPT_COMMAND"
