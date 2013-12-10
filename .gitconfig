@@ -31,3 +31,5 @@
 	autosetuprebase = always
 [rebase]
 	autosquash = true
+[credential]
+	helper = osxkeychain
