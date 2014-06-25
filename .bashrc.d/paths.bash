@@ -92,5 +92,6 @@ add_prefix() {
 # Let apps in /usr/local override everything
 add_prefix "/usr/local"
 add_prefix "/usr/local/opt/ruby"
+add_prefix "${HOME}/.cabal"
 
 export PATH
