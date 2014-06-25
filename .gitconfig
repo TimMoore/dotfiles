@@ -18,7 +18,7 @@
 	tool = opendiff
 	conflictstyle = diff3
 [push]
-	default = tracking
+	default = simple
 [core]
 	excludesfile = /Users/tmoore/.gitignore_global
 [difftool "sourcetree"]
