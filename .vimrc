@@ -3,4 +3,4 @@ set ruler
 syntax on
 filetype indent plugin on
 set background=dark
-colorscheme solarized
+colorscheme base16-default
