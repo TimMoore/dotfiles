@@ -1,5 +1,5 @@
-if has mate; then
-    EDITOR='mate -w'
+if has atom; then
+    EDITOR='atom -w'
 else
     EDITOR="$(which vi)"
 fi
