@@ -1,5 +1,5 @@
 if has atom; then
-    EDITOR='atom -w'
+    EDITOR='atom'
 else
     EDITOR="$(which vi)"
 fi
