@@ -52,3 +52,6 @@ source_everything_in ~/.bashrc.d
 # Include host-specific .bashrc file.
 # This is done last to allow for host-specific overrides of defaults.
 try_to_source ~/".bashrc.$(hostname -s)"
+
+# Allow direnv to override the environment
+has direnv && eval "$(direnv hook bash)"
