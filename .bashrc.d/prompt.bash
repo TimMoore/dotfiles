@@ -10,4 +10,6 @@ prompt_windowtitle='\[\e]0;\a\]'
 prompt_timestamp="$(_prompt_color SOLARIZED_${SOLARIZED_MODE}_COMMENTS '[\t]')"
 prompt_path="$(_prompt_color SOLARIZED_COLOR_BLUE '\w')"
 
-PROMPT_COMMAND="__git_ps1 '$prompt_windowtitle$prompt_timestamp \u@\h:$prompt_path' ' \$ '; $PROMPT_COMMAND"
+prompt_aws_vault="${AWS_VAULT:+ 🔐 $AWS_VAULT}"
+
+PROMPT_COMMAND="__git_ps1 '$prompt_windowtitle$prompt_timestamp \u@\h:$prompt_path' '$prompt_aws_vault \$ '; $PROMPT_COMMAND"
