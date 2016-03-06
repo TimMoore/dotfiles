@@ -1,8 +1,13 @@
+# If  set,  bash  does not overwrite an existing file with the >, >&, and <>
+# redirection operators.  This may be overridden when creating output files by
+# using the redirection operator >| instead of >.
+set -o noclobber
+
 # If set, an argument to the cd builtin command that is not a directory is
 # assumed to be the name of a variable whose value is the directory to change
 # to.
 #
-shopt -u cdable_vars
+shopt -s cdable_vars
 
 # If set, minor errors in the spelling of a directory component in a cd
 # command will be corrected. The errors checked for are transposed characters,
@@ -10,13 +15,13 @@ shopt -u cdable_vars
 # the corrected file name is printed, and the command proceeds. This option is
 # only used by interactive shells.
 #
-shopt -u cdspell
+shopt -s cdspell
 
 # If set, bash checks that a command found in the hash table exists before
 # trying to execute it. If a hashed command no longer exists, a normal path
 # search is performed.
 #
-shopt -u checkhash
+shopt -s checkhash
 
 # If set, bash checks the window size after each command and, if necessary,
 # updates the values of LINES and COLUMNS.
