@@ -55,7 +55,7 @@ HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 HISTTIMEFORMAT='%F %T '
 
 # Record each line as it gets issued
-PROMPT_COMMAND='history -a'
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 ## Environment:
 
