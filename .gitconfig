@@ -1,37 +1,57 @@
 [user]
 	name = Tim Moore
 	email = tmoore@incrementalism.net
-[color]
-	ui = auto
-[alias]
-	co = checkout
-	br = branch
-	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	st = status
-	stat = status
-	svn-checkout = svn clone -s
-	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
-	ff = pull --ff-only
-	conflicts = diff --name-only --diff-filter=U
-	authors = shortlog -sne
-[github]
-	user = TimMoore
-[merge]
-	tool = opendiff
-	conflictstyle = diff3
-[push]
-	default = simple
-[core]
-	excludesfile = /Users/tmoore/.gitignore_global
-[branch]
-	autosetuprebase = always
-[rebase]
-	autosquash = true
+[commit]
+	verbose = true
 [credential]
 	helper = osxkeychain
 [diff]
-	algorithm = patience
+	mnemonicPrefix = true
+	renames = copy
+	algorithm = histogram
+[fetch]
+	prune = true
+[help]
+	autoCorrect = 5
+[log]
+	follow = true
+[merge]
+	conflictStyle = diff3
 [pager]
 	log  = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+[pull]
+	rebase = true
+[push]
+	# simple is the default in Git 2.0+,
+	# but make it explicit in case I ever end up
+	# using an older version of git by mistake
+	default = simple
+[rebase]
+	autoSquash = true
+	autoStash = true
+[stash]
+	showPatch = true
+
+[alias]
+	co = checkout
+	br = branch
+	st = status
+	stat = status
+	ff = pull --ff-only
+	graph = log --graph \
+			--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' \
+			--abbrev-commit \
+			--date=relative
+	authors = shortlog -sne
+	conflicts = diff --name-only --diff-filter=U
+	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+
+# Used by the hub tool
+[github]
+	user = TimMoore
+
+# Allow local overrides (useful for work email addresses)
+[include]
+	path = ~/.gitconfig.local
