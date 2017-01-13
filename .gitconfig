@@ -12,7 +12,7 @@
 [fetch]
 	prune = true
 [help]
-	autoCorrect = 5
+	autoCorrect = 10
 [log]
 	follow = true
 [merge]
