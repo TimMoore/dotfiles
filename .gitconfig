@@ -45,6 +45,12 @@
 	# Fails if there are local changes that aren't on the remote,
 	# in which case you should rebase.
 	ff = pull --ff-only
+
+	# fff = fast-fast-forward:
+	# Just like "ff" but doesn't fetch from the remote. Use this if you've
+	# recently fetched and just need to update your local branch
+	fff = merge --ff-only
+
 	graph = log --graph \
 			--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' \
 			--abbrev-commit \
