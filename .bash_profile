@@ -1,8 +1,3 @@
-# With thanks to Todd Werth
-# http://blog.infinitered.com/entries/show/4
-# and
-# https://github.com/twerth/dotfiles
-#
 # When you start an interactive shell (log in, open terminal or iTerm
 # in OS X, or create a new tab in iTerm) the following files are read and
 # run, in this order:
@@ -18,6 +13,8 @@
 #     /etc/bashrc
 #     ~/.bashrc
 #
+# Learn more from
+# http://www.joshstaiger.org/archives/2005/07/bash_profile_vs.html
 
 # Include .bashrc.
 . ~/.bashrc
