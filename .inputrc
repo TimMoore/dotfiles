@@ -5,6 +5,118 @@
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
-set completion-ignore-case on
+# Except where noted, readline variables can take the values On or Off (without
+# regard  to  case).  Unrecognized variable names are ignored.  When a variable
+# value is read, empty or null values, "on"  (case-insensitive),  and  "1"  are
+# equivalent to On.  All other values are equivalent to Off.  The variables and
+# their default values are:
+# bell-style (audible)
+#        Controls what happens when readline wants to ring the  terminal  bell.
+#        If  set  to  none,  readline never rings the bell.  If set to visible,
+#        readline uses a visible bell if one is available.  If set to  audible,
+#        readline attempts to ring the terminal's bell.
+
 set bell-style none
+
+# bind-tty-special-chars (On)
+#        If set to On, readline attempts to bind the control characters treated
+#        specially by the kernel's terminal driver to  their  readline  equiva-
+#        lents.
+# comment-begin (``#'')
+#        The  string  that is inserted when the readline insert-comment command
+#        is executed.  This command is bound to M-# in emacs mode and to  #  in
+#        vi command mode.
+# completion-ignore-case (Off)
+#        If  set to On, readline performs filename matching and completion in a
+#        case-insensitive fashion.
+
+set completion-ignore-case on
+
+# completion-query-items (100)
+#        This determines when the user is queried about viewing the  number  of
+#        possible  completions  generated  by the possible-completions command.
+#        It may be set to any integer value greater than or equal to zero.   If
+#        the  number  of  possible  completions is greater than or equal to the
+#        value of this variable, the user is asked whether or not he wishes  to
+#        view them; otherwise they are simply listed on the terminal.
+# convert-meta (On)
+#        If set to On, readline will convert characters with the eighth bit set
+#        to an ASCII key sequence by stripping the eighth bit and prefixing  an
+#        escape character (in effect, using escape as the meta prefix).
+# disable-completion (Off)
+#        If set to On, readline will inhibit word completion.  Completion char-
+#        acters will be inserted into the line as if they had  been  mapped  to
+#        self-insert.
+# editing-mode (emacs)
+#        Controls whether readline begins with a set of key bindings similar to
+#        emacs or vi.  editing-mode can be set to either emacs or vi.
+# enable-keypad (Off)
+#        When set to On, readline will try to  enable  the  application  keypad
+#        when it is called.  Some systems need this to enable the arrow keys.
+# expand-tilde (Off)
+#        If set to on, tilde expansion is performed when readline attempts word
+#        completion.
+# history-preserve-point (Off)
+#        If set to on, the history code attempts to place  point  at  the  same
+#        location on each history line retrieved with previous-history or next-
+#        history.
+# horizontal-scroll-mode (Off)
+#        When set to  On,  makes  readline  use  a  single  line  for  display,
+#        scrolling  the  input  horizontally  on  a  single screen line when it
+#        becomes longer than the screen width rather than  wrapping  to  a  new
+#        line.
+# input-meta (Off)
+#        If  set  to On, readline will enable eight-bit input (that is, it will
+#        not strip the high bit from the characters it  reads),  regardless  of
+#        what the terminal claims it can support.  The name meta-flag is a syn-
+#        onym for this variable.
+# isearch-terminators (``C-[C-J'')
+#        The string of characters that should terminate an  incremental  search
+#        without  subsequently  executing  the character as a command.  If this
+#        variable has not been given a value, the characters ESC and  C-J  will
+#        terminate an incremental search.
+# keymap (emacs)
+#        Set  the  current  readline  keymap.  The set of valid keymap names is
+#        emacs, emacs-standard, emacs-meta,  emacs-ctlx,  vi,  vi-command,  and
+#        vi-insert.   vi  is  equivalent  to vi-command; emacs is equivalent to
+#        emacs-standard.  The default value is emacs; the value of editing-mode
+#        also affects the default keymap.
+# mark-directories (On)
+#        If set to On, completed directory names have a slash appended.
+# mark-modified-lines (Off)
+#        If set to On, history lines that have been modified are displayed with
+#        a preceding asterisk (*).
+# mark-symlinked-directories (Off)
+#        If set to On, completed names which are symbolic links to  directories
+#        have a slash appended (subject to the value of mark-directories).
+# match-hidden-files (On)
+#        This  variable,  when  set to On, causes readline to match files whose
+#        names begin with a `.' (hidden files) when performing filename comple-
+#        tion,  unless  the leading `.' is supplied by the user in the filename
+#        to be completed.
+# output-meta (Off)
+#        If set to On, readline will display characters with the eighth bit set
+#        directly rather than as a meta-prefixed escape sequence.
+# page-completions (On)
+#        If  set  to On, readline uses an internal more-like pager to display a
+#        screenful of possible completions at a time.
+# print-completions-horizontally (Off)
+#        If set to On, readline will display completions  with  matches  sorted
+#        horizontally in alphabetical order, rather than down the screen.
+# show-all-if-ambiguous (Off)
+#        This  alters the default behavior of the completion functions.  If set
+#        to on, words which have more than one possible  completion  cause  the
+#        matches to be listed immediately instead of ringing the bell.
+
 set show-all-if-ambiguous on
+
+# show-all-if-unmodified (Off)
+#        This  alters  the  default  behavior  of the completion functions in a
+#        fashion similar to show-all-if-ambiguous.  If set to on,  words  which
+#        have  more  than  one possible completion without any possible partial
+#        completion (the possible completions  don't  share  a  common  prefix)
+#        cause  the  matches  to  be  listed immediately instead of ringing the
+#        bell.
+# visible-stats (Off)
+#        If set to On, a character  denoting  a  file's  type  as  reported  by
+#        stat(2) is appended to the filename when listing possible completions.
