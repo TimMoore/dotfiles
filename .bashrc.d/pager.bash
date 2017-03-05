@@ -1,5 +1,5 @@
 if has less; then
     PAGER="$(which less)"
-    LESS="FSRX"
+    LESS="FSR"
     export PAGER LESS
 fi
