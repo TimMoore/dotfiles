@@ -93,9 +93,6 @@ HISTSIZE=500000
 #        history  entry  displayed by the history builtin.  If this variable is
 #        set, time stamps are written to the history file so they may  be  pre-
 #        served across shell sessions.
-
-HISTTIMEFORMAT='%F %T '
-
 # HOME   The  home  directory of the current user; the default argument for the
 #        cd builtin command.  The value of this variable is also used when per-
 #        forming tilde expansion.
@@ -183,9 +180,6 @@ HISTTIMEFORMAT='%F %T '
 # PROMPT_COMMAND
 #        If  set, the value is executed as a command prior to issuing each pri-
 #        mary prompt.
-
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-
 # PS1    The value of this parameter is expanded (see PROMPTING below) and used
 #        as the primary prompt string.  The default value is ``\s-\v\$ ''.
 # PS2    The  value  of  this parameter is expanded as with PS1 and used as the

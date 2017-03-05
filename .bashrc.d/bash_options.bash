@@ -238,9 +238,6 @@ shopt -s extglob
 #         If set, the history list is appended to the file named by the  value
 #         of the HISTFILE variable when the shell exits, rather than overwrit-
 #         ing the file.
-
-shopt -s histappend
-
 # histreedit
 #         If set, and readline is being used, a user is given the  opportunity
 #         to re-edit a failed history substitution.
