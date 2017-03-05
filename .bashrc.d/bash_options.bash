@@ -185,27 +185,15 @@ shopt -s cmdhist
 #         If set, bash changes its  behavior  to  that  of  version  3.1  with
 #         respect  to  quoted arguments to the conditional command's =~ opera-
 #         tor.
-
-shopt -u compat31
-
 # dotglob If set, bash includes filenames beginning with a `.' in the  results
 #         of pathname expansion.
-
-shopt -u dotglob
-
 # execfail
 #         If  set,  a non-interactive shell will not exit if it cannot execute
 #         the file specified as an argument to the exec builtin  command.   An
 #         interactive shell does not exit if exec fails.
-
-shopt -u execfail
-
 # expand_aliases
 #         If set, aliases are expanded as described above under ALIASES.  This
 #         option is enabled by default for interactive shells.
-
-shopt -s expand_aliases
-
 # extdebug
 #         If set, behavior intended for use by debuggers is enabled:
 #         1.     The -F option to the declare builtin displays the source file
@@ -225,9 +213,6 @@ shopt -s expand_aliases
 #         6.     Error  tracing is enabled:  command substitution, shell func-
 #                tions, and subshells invoked with (  command  )  inherit  the
 #                ERROR trap.
-
-shopt -u extdebug
-
 # extglob If set, the extended pattern matching features described above under
 #         Pathname Expansion are enabled.
 
@@ -237,30 +222,18 @@ shopt -s extglob
 #         If set, $'string' and $"string" quoting is performed within ${param-
 #         eter}  expansions enclosed in double quotes.  This option is enabled
 #         by default.
-
-shopt -s extquote
-
 # failglob
 #         If set, patterns which  fail  to  match  filenames  during  pathname
 #         expansion result in an expansion error.
-
-shopt -u failglob
-
 # force_fignore
 #         If  set,  the suffixes specified by the FIGNORE shell variable cause
 #         words to be ignored when performing  word  completion  even  if  the
 #         ignored  words  are  the only possible completions.  See SHELL VARI-
 #         ABLES above for a description of FIGNORE.  This option is enabled by
 #         default.
-
-shopt -s force_fignore
-
 # gnu_errfmt
 #         If  set,  shell error messages are written in the standard GNU error
 #         message format.
-
-shopt -u gnu_errfmt
-
 # histappend
 #         If set, the history list is appended to the file named by the  value
 #         of the HISTFILE variable when the shell exits, rather than overwrit-
@@ -271,9 +244,6 @@ shopt -s histappend
 # histreedit
 #         If set, and readline is being used, a user is given the  opportunity
 #         to re-edit a failed history substitution.
-
-shopt -u histreedit
-
 # histverify
 #         If set, and readline is being used, the results of history substitu-
 #         tion are not immediately passed to the shell parser.   Instead,  the
@@ -286,28 +256,16 @@ shopt -s histverify
 #         If set, and readline is being used, bash  will  attempt  to  perform
 #         hostname  completion  when  a word containing a @ is being completed
 #         (see Completing under READLINE above).  This is enabled by  default.
-
-shopt -s hostcomplete
-
 # huponexit
 #         If  set, bash will send SIGHUP to all jobs when an interactive login
 #         shell exits.
-
-shopt -u huponexit
-
 # interactive_comments
 #         If set, allow a word beginning with # to cause  that  word  and  all
 #         remaining  characters  on  that line to be ignored in an interactive
 #         shell (see COMMENTS above).  This option is enabled by default.
-
-shopt -s interactive_comments
-
 # lithist If set, and the cmdhist option is enabled, multi-line  commands  are
 #         saved  to the history with embedded newlines rather than using semi-
 #         colon separators where possible.
-
-shopt -u lithist
-
 # login_shell
 #         The shell sets this option if it is started as a  login  shell  (see
 #         INVOCATION above).  The value may not be changed.
@@ -315,9 +273,6 @@ shopt -u lithist
 #         If  set, and a file that bash is checking for mail has been accessed
 #         since the last time it was checked, the message ``The mail in  mail-
 #         file has been read'' is displayed.
-
-shopt -u mailwarn
-
 # no_empty_cmd_completion
 #         If  set, and readline is being used, bash will not attempt to search
 #         the PATH for possible completions when completion is attempted on an
@@ -328,34 +283,19 @@ shopt -s no_empty_cmd_completion
 # nocaseglob
 #         If  set,  bash  matches filenames in a case-insensitive fashion when
 #         performing pathname expansion (see Pathname Expansion above).
-
-shopt -u nocaseglob
-
 # nocasematch
 #         If set, bash matches patterns in  a  case-insensitive  fashion  when
 #         performing matching while executing case or [[ conditional commands.
-
-shopt -u nocasematch
-
 # nullglob
 #         If set, bash allows patterns which  match  no  files  (see  Pathname
 #         Expansion above) to expand to a null string, rather than themselves.
-
-shopt -u nullglob
-
 # progcomp
 #         If set, the programmable  completion  facilities  (see  Programmable
 #         Completion above) are enabled.  This option is enabled by default.
-
-shopt -s progcomp
-
 # promptvars
 #         If  set, prompt strings undergo parameter expansion, command substi-
 #         tution, arithmetic expansion, and quote removal after being expanded
 #         as described in PROMPTING above.  This option is enabled by default.
-
-shopt -s promptvars
-
 # restricted_shell
 #         The shell sets this option if it is started in restricted mode  (see
 #         RESTRICTED SHELL below).  The value may not be changed.  This is not
@@ -364,18 +304,10 @@ shopt -s promptvars
 # shift_verbose
 #         If  set,  the  shift  builtin prints an error message when the shift
 #         count exceeds the number of positional parameters.
-
-shopt -u shift_verbose
-
 # sourcepath
 #         If set, the source (.) builtin uses the value of PATH  to  find  the
 #         directory  containing the file supplied as an argument.  This option
 #         is enabled by default.
-
-shopt -s sourcepath
-
 # xpg_echo
 #         If set, the  echo  builtin  expands  backslash-escape  sequences  by
 #         default.
-
-shopt -u xpg_echo
