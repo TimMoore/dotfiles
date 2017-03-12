@@ -12,20 +12,32 @@ reset_window_title() {
     printf '\e]0;\a'
 }
 
-add_prompt_cmd() {
-    PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }${@}"
-}
-
 init_prompt() {
-    ps1_timestamp="$(_prompt_color ${base16_comment} '[\t]')"
-    ps1_dir="$(_prompt_color ${ansi_fg_blue} '\w')"
+    prompt_escape() {
+        echo -n "\[${@}\]"
+    }
+
+    prompt_color() {
+        local color="${1}"; shift
+        prompt_escape "${color}"
+        echo -n "${@}"
+        prompt_escape "${ansi_reset}"
+    }
+
+    ps1_timestamp="$(prompt_color ${base16_comment} '[\t]')"
+    ps1_dir="$(prompt_color ${ansi_fg_blue} '\w')"
 
     git_ps1_prefix="${ps1_timestamp} ${ps1_dir}"
     git_ps1_suffix=" \$ "
 
+    add_prompt_cmd() {
+        PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }${@}"
+    }
+
     add_prompt_cmd reset_window_title
     add_prompt_cmd "__git_ps1 '${git_ps1_prefix}' '${git_ps1_suffix}'"
 
-    unset init_prompt # self-destruct to avoid polluting the namespace
+    # self-destruct to avoid polluting the namespace
+    unset prompt_escape prompt_color add_prompt_cmd init_prompt
 }
 init_prompt

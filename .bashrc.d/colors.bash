@@ -137,17 +137,6 @@ ansi_text() {
     echo -n "${color}${@}${ansi_reset}"
 }
 
-_prompt_escape() {
-    echo -n "\[${@}\]"
-}
-
-_prompt_color() {
-    local color="${1}"; shift
-    _prompt_escape "${color}"
-    echo -n "${@}"
-    _prompt_escape "${ansi_reset}"
-}
-
 show_colors() {
     local color_index
     for color_index in ${!colors[@]}; do
