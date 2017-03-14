@@ -1,6 +1,6 @@
 if has less; then
     export PAGER="$(which less)"
-    export LESS="FSR"
+    export LESS="SR"
 
     # Colorful manpages
     # Inspired by http://github.com/anveo/dotfiles
