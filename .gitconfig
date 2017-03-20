@@ -35,8 +35,9 @@
 
 [alias]
 	# Shortcuts
-	co = checkout
 	br = branch
+	co = checkout
+	cp = cherry-pick
 	st = status
 	stat = status
 
