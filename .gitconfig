@@ -38,7 +38,6 @@
 	br = branch
 	co = checkout
 	cp = cherry-pick
-	st = status
 	stat = status
 
 	# ff = fast-forward:
@@ -52,18 +51,17 @@
 	# recently fetched and just need to update your local branch
 	fff = merge --ff-only
 
-	graph = log --graph \
-			--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' \
-			--abbrev-commit \
-			--date=relative
-	authors = shortlog -sne
-
 	# Prints a list of conflicting files.
 	# You can use `git conflicts|xargs $EDITOR` to open them all
 	# in your favorite editor.
 	conflicts = diff --name-only --diff-filter=U
 
 	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+
+	# Credit to http://codersopinion.com/blog/16-awesome-git-aliases-that-you-will-love/
+	authors = shortlog -sne --no-merges
+	graph = log --graph --oneline --decorate
+	st = status -sb
 
 # Used by the hub tool
 [github]
