@@ -61,11 +61,18 @@
 	# Credit to http://codersopinion.com/blog/16-awesome-git-aliases-that-you-will-love/
 	authors = shortlog -sne --no-merges
 	graph = log --graph --oneline --decorate
+	overview = graph --all --simplify-by-decoration
 	st = status -sb
 
 	# Credit to https://hackernoon.com/lesser-known-git-commands-151a1918a60
 	amend = commit --amend
 	please = push --force-with-lease
+
+	# Credit to https://github.com/tj/git-extras
+	merged = branch --merged
+	delete-merged = !git branch --no-color --merged | grep -v '\\*' | grep -v master | grep -v svn | xargs -n 1 git branch -d
+	since = !git --no-pager log --all --no-merges --author='Tim Moore' --oneline --since
+	week = since 'last week'
 
 # Used by the hub tool
 [github]
