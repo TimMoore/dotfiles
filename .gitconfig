@@ -63,6 +63,10 @@
 	graph = log --graph --oneline --decorate
 	st = status -sb
 
+	# Credit to https://hackernoon.com/lesser-known-git-commands-151a1918a60
+	amend = commit --amend
+	please = push --force-with-lease
+
 # Used by the hub tool
 [github]
 	user = TimMoore
