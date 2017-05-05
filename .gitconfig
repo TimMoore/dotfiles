@@ -39,6 +39,7 @@
 	co = checkout
 	cp = cherry-pick
 	stat = status
+	up = push -u TimMoore HEAD
 
 	# ff = fast-forward:
 	# Pulls upstream changes and updates the local branch to match.
