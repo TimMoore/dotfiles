@@ -6,6 +6,7 @@
 [credential]
 	helper = osxkeychain
 [diff]
+	indentHeuristic = true
 	mnemonicPrefix = true
 	renames = copy
 	algorithm = histogram
@@ -58,6 +59,8 @@
 	conflicts = diff --name-only --diff-filter=U
 
 	serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+
+	squash = !git rebase --interactive $(git merge-base master HEAD)
 
 	# Credit to http://codersopinion.com/blog/16-awesome-git-aliases-that-you-will-love/
 	authors = shortlog -sne --no-merges
