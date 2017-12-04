@@ -49,7 +49,7 @@ init_prompt() {
 
     add_prompt_cmd force_newline
     add_prompt_cmd reset_window_title
-    add_prompt_cmd "__git_ps1 '${git_ps1_prefix}' '${git_ps1_suffix}'"
+    [[ $(type -t __git_ps1) == 'function' ]] && add_prompt_cmd "__git_ps1 '${git_ps1_prefix}' '${git_ps1_suffix}'"
 
     # self-destruct to avoid polluting the namespace
     unset prompt_escape prompt_color add_prompt_cmd init_prompt
