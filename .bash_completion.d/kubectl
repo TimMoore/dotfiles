@@ -1,0 +1,4 @@
+if has kubectl; then
+    source <(kubectl completion bash)
+fi
+
