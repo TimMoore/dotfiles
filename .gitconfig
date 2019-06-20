@@ -10,6 +10,7 @@
 	mnemonicPrefix = true
 	renames = copy
 	algorithm = histogram
+	colorMoved = default
 [fetch]
 	prune = true
 [help]
