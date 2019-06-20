@@ -80,6 +80,9 @@
 	since = !git --no-pager log --all --no-merges --author='Tim Moore' --oneline --since
 	week = since 'last week'
 
+        # Credit to https://stackoverflow.com/a/7149602/29470
+	add-w = !git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -
+
 # Used by the hub tool
 [github]
 	user = TimMoore
