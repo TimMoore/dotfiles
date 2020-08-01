@@ -81,7 +81,7 @@
 	week = since 'last week'
 
         # Credit to https://stackoverflow.com/a/7149602/29470
-	add-w = !git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -
+	add-w = !git diff -U0 --ignore-space-at-eol --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -
 
 # Used by the hub tool
 [github]
