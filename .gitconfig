@@ -42,6 +42,7 @@
 	co = checkout
 	cp = cherry-pick
 	stat = status
+	s = switch
 	up = push -u TimMoore HEAD
 
 	# ff = fast-forward:
