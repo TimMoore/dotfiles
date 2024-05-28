@@ -40,11 +40,13 @@
 
 [alias]
 	# Shortcuts
+	b = branch
 	br = branch
 	co = checkout
 	cp = cherry-pick
 	stat = status
 	s = switch
+	sw = switch
 	up = push -u TimMoore HEAD
 
 	# ff = fast-forward:
@@ -79,7 +81,7 @@
 
 	# Credit to https://github.com/tj/git-extras
 	merged = branch --merged
-	delete-merged = !git branch --no-color --merged | grep -v '\\*' | grep -v master | grep -v svn | xargs -n 1 git branch -d
+	delete-merged = !git branch --no-color --merged | grep -v -E -e '^(\\*|\\+)' -e "$(git config --get init.defaultBranch)" | xargs -n 1 git branch -d
 	since = !git --no-pager log --all --no-merges --author='Tim Moore' --oneline --since
 	week = since 'last week'
 
