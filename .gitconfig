@@ -95,3 +95,8 @@
 # Allow local overrides (useful for work email addresses)
 [include]
 	path = ~/.gitconfig.local
+
+# Override for Gigabuddy projects
+[includeIf "gitdir:~/Projects/gigabuddy/"]
+	path = ~/Projects/gigabuddy/.gitconfig
+
