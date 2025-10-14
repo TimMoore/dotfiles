@@ -79,7 +79,7 @@
 
 	# Credit to https://hackernoon.com/lesser-known-git-commands-151a1918a60
 	amend = commit --amend
-	please = push --force-with-lease
+	please = push --force-with-lease --force-if-includes
 
 	# Credit to https://github.com/tj/git-extras
 	merged = branch --merged
