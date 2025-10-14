@@ -69,6 +69,8 @@
 
 	squash = !git rebase --interactive $(git merge-base master HEAD)
 
+	sync = !git switch "$(git config --get init.defaultBranch)" && git pull --ff-only && git delete-merged
+
 	# Credit to http://codersopinion.com/blog/16-awesome-git-aliases-that-you-will-love/
 	authors = shortlog -sne --no-merges
 	graph = log --graph --oneline --decorate
