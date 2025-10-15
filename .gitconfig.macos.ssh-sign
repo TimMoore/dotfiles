@@ -1,0 +1,18 @@
+# Configure "GPG" signing with SSH and 1Password
+# https://developer.1password.com/docs/ssh/git-commit-signing/
+# Link this file into $HOME on macOS systems where 1Password is installed
+
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBXDzu90YmSNaFWWxnBdVrPxWwp4VO2kb2nKCw7xyV1E
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+	allowedSignersFile = ~/.ssh/allowed_signers
+
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true

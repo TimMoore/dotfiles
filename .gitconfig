@@ -98,6 +98,10 @@
 [include]
 	path = ~/.gitconfig.local
 
+# Include ssh signing config on macOS systems if the file exists
+[include]
+	path = ~/.gitconfig.macos.ssh-sign
+
 # Override for Gigabuddy projects
 [includeIf "gitdir:~/Projects/gigabuddy/"]
 	path = ~/Projects/gigabuddy/.gitconfig
